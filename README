@@ -1,0 +1,34 @@
+Welcome to Sweeter Tweet Reader!
+
+This utility is intended for a situation where you have a single twitter account, and you want 
+authenticated access to twitter to pull in tweets for that account. 
+
+Sweeter Tweet Reader is designed for a single-user use case. You will need to setup an application 
+and access tokens with twitter. For more information and to setup your application please visit:
+
+http://dev.twitter.com/pages/oauth_single_token
+
+Sweeter Tweet Reader models can be written to accommodate various needs, and views can present data 
+in whatever way you might desire. 
+
+The default model and view provide the home timeline for the account.
+
+Twitter goes down a little bit too often ... for that reason, we use caching to show what we last
+grabbed, and do the updates in the background. Basically, each page hit, we show our cached tweets, 
+and try to refresh the tweets in the background if possible.
+
+On sites with a reasonable amount of traffic this approach works quite well and your site should 
+never sit waiting for twitter to respond. It also puts the tweets right in your HTML instead of 
+relying on javascript to inject content, which makes your site faster and more accessible.
+
+USAGE:
+
+1. Put the SweeterTweetReader folder outside of the web tree.
+
+2. Make an alias inside your web tree to the SweeterTweetReader www folder.
+
+3. Make a copy of config_default.php and call it config.php.
+
+4. Configure config.php to setup paths and oauth credentials.
+
+In a browser go to the SweeterTweetReader www folder using the alias you setup in #2.
