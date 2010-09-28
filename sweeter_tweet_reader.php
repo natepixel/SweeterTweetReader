@@ -7,9 +7,7 @@
  * 
  * It recognizes that twitter is flaky, and eschews a javascript only approach with can result in hung pages.
  *
- * The provided data models includes a caching and nonce scheme that updates the data in the background whenever possible.
- * 
- * Models based upon this default model will always return the current set of results, and then do a background request to update 
+ * Models based upon this default model will always return the cached results, and then do a background request to update 
  * if a fixed amount of time has passed. This should stop most php timeouts when twitter is flaky.
  *
  * SweetTweetReader lets you plug in various models and view - or use the default
@@ -146,7 +144,7 @@ final class SweeterTweetReader
 			$view = new $view_name;
 			return $view;
 		}
-		trigger_error('the view ' . $view . ' could not be found.');
+		trigger_error('the view ' . $view . ' could not be found.', E_USER_ERROR);
 		return false;
 	}
 
