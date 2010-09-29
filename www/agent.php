@@ -3,7 +3,6 @@
  * The sweeter tweet reader agent handles the background requests when given a proper nonce.
  */
 
-require_once( 'paths.php' );
 require_once( '../sweeter_tweet_reader.php');
 
 if (isset($_REQUEST['sweeter_tweet_reader_nonce']))
