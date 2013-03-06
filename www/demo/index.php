@@ -9,7 +9,7 @@
 <?php
 require_once('../../sweeter_tweet_reader.php');
 $sweet_tweet = new SweeterTweetReader();
-$sweet_tweet->set('public_timeline');
+$sweet_tweet->set('home_timeline');
 $tweet_html = $sweet_tweet->get();
 echo $tweet_html;
 ?>

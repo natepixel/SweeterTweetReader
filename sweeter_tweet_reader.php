@@ -75,7 +75,7 @@ final class SweeterTweetReader
 	/**
 	 * @var string
 	 */
-	private $default_config = array('lifespan' => '5');
+	private $default_config = array('lifespan' => '30'); // 30 seconds is 120 times per hour max
 	
 	/**
 	 * We imply we support a connection being set externally but we don't really ... at least not with the current nonce system and no revisions to www/agent.php
@@ -161,9 +161,12 @@ final class SweeterTweetReader
 		{
 			$view = ($view == NULL) ? $this->default_view : $view;
 			$model = $this->get_model();
-			$data = $model->get_data();
-			$view = $this->get_view($view);
-			return $view->get($data);
+			if ($model)
+			{
+				$data = $model->get_data();
+				$view = $this->get_view($view);
+				return $view->get($data);
+			}
 		}
 	}
 

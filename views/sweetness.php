@@ -28,7 +28,14 @@ class Sweetness implements SweeterTweetReaderView
 			{
 				$str .= '<div class="twitter_status" id="'.$tweet->id.'">';
 				$str .= '<img src="'.$tweet->user->profile_image_url.'" />';
-				$str .= '<p><strong>'.$tweet->user->name.'</strong> (<a href="http://www.twitter.com/'.$tweet->user->screen_name.'">'.$tweet->user->screen_name.'</a>):';
+				if (!empty($tweet->user->name))
+				{
+					$str .= '<p><strong>'.$tweet->user->name.'</strong> (<a href="http://www.twitter.com/'.$tweet->user->screen_name.'">'.$tweet->user->screen_name.'</a>):';
+				}
+				else
+				{
+					$str .= '<p><strong><a href="http://www.twitter.com/'.$tweet->user->screen_name.'">'.$tweet->user->screen_name.'</a></strong>:';
+				}
 				$str .= ' <span class="tweet_content">'.$tweet->html.'</span>';
 				$str .= ' <span class="twitter_posted_at">'.$this->timesince(strtotime($tweet->created_at)).' ago</span>';
 				if (!empty($tweet->source))

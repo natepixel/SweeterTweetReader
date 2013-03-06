@@ -26,7 +26,7 @@ abstract class AbstractSweeterTweetReaderModel
 		$this->connection = $conn;
 		$this->model_name = $name;
 		$this->config =& $config;
-		if (!isset($this->config['lifespan'])) $this->config['lifespan'] = 60; // default to one minute lifespan
+		if (!isset($this->config['lifespan'])) $this->config['lifespan'] = 300; // default to five minute lifespan
 	}
 	
 	/**
